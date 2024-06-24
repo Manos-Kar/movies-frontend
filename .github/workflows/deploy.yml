@@ -45,10 +45,10 @@ jobs:
           head -n 5 ~/.ssh/deploy_key
           
           # Test the SSH connection for debugging
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ubuntu@www.manoskarystinos.com 'echo "SSH connection successful"'
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'echo "SSH connection successful"'
 
           # Sync the build directory to the server
-          rsync -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ ubuntu@www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
+          rsync -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
           
           # Restart uWSGI
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ubuntu@www.manoskarystinos.com 'sudo systemctl restart uwsgi'
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'sudo systemctl restart uwsgi'
