@@ -12,6 +12,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        
+      - name: Setup SSH
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "${SSH_KEY}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          # Add www.manoskarystinos.com SSH key to known_hosts
+          ssh-keyscan -H www.manoskarystinos.com >> ~/.ssh/known_hosts
+
+      - name: Debug SSH connection
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'echo "SSH connection successful"'
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -28,16 +42,6 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
-          # Create .ssh directory
-          mkdir -p ~/.ssh
-
-          # Add the SSH key
-          echo "${SSH_KEY}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-
-          # Add the remote server to known_hosts
-          ssh-keyscan -H www.manoskarystinos.com >> ~/.ssh/known_hosts
-
           # Sync the build directory to the server
           rsync -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
 
