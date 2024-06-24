@@ -11,6 +11,24 @@ error() {
     exit 1
 }
 
+# Function to execute commands with sudo and handle password input
+execute_remote_with_sudo() {
+    local remote_host=$1
+    local command=$2
+
+    # Execute sudo command on remote server with interactive password prompt
+    ssh -t www.manoskarystinos.com "sudo systemctl restart uwsgi"
+}
+
+execute_remote_with_venv() {
+    local remote_host=$1
+    local venv_path=$2
+    local command=$3
+
+    # Execute command within activated venv on remote server
+    ssh -t $remote_host "source $venv_path/bin/activate && cd /var/www/manos-movies/movies-backend && $command"
+}
+
 # Step 1: Git pull in localdir/movie-frontend
 log "Step 1: Git pull in /movie-frontend"
 git pull || error "Git pull failed"
@@ -27,21 +45,13 @@ npm run build || error "Failed to build the frontend"
 log "Step 4: SCP the build to remote server"
 scp -r build/* www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build || error "Failed to copy build to remote server"
 
-# Step 5: Restart uWSGI on remote server
-log "Step 5: Restart uWSGI on remote server"
-ssh www.manoskarystinos.com 'sudo systemctl restart uwsgi' || error "Failed to restart uWSGI on remote server"
+# Step 5: Activate venv and run collectstatic on remote server
+log "Step 5: Activate venv and run collectstatic on remote server"
+execute_remote_with_venv "www.manoskarystinos.com" "/var/www/manos-movies/venv" "python3 manage.py collectstatic --noinput" || error "Failed to run collectstatic on remote server"
 
-# Step 6: Delay before checking uWSGI status
-log "Step 6: Delay before checking uWSGI status"
-sleep 5
+# # Step 6: Restart uWSGI on remote server
+# log "Step 6: Restart uWSGI on remote server"
+# execute_remote_with_sudo "www.manoskarystinos.com" "systemctl restart uwsgi" || error "Failed to restart uWSGI on remote server"
 
-# Step 7: Check uWSGI status on remote server and proceed only if active
-log "Step 7: Check uWSGI status on remote server"
-if ssh www.manoskarystinos.com 'sudo systemctl is-active --quiet uwsgi'; then
-    log "uWSGI is active on the remote server."
-else
-    error "uWSGI is not active on the remote server."
-fi
-
-# Step 8: Confirmation
+# Step 9: Confirmation
 log "Update process completed successfully."

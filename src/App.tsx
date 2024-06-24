@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={underConstruction} className="App-logo" alt="logo" />
+        <div className="App-logo-div">
+          <img src={underConstruction} className="App-logo" alt="logo" />
+        </div>
         <p className="title">Manos Karystinos V {manosVersion}</p>
         <p className="subtitle">movies</p>
       </header>

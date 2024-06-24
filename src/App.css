@@ -5,15 +5,26 @@
   font-size: 12px;
 }
 .App .subtitle {
-  font-size: 9px;
-  letter-spacing: 8px;
+  font-size: 24px;
+  letter-spacing: 9px;
   font-weight: bold;
-  margin-top: -10px;
+  margin-top: -16px;
+  padding-left: 12px;
 }
 
-.App-logo {
+.App-logo-div {
+  height: 240px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-radius: 8px;
+}
+.App-logo-div .App-logo {
   height: 200px;
   pointer-events: none;
+  border-radius: 20px;
 }
 
 .App-header {
