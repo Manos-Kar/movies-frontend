@@ -39,7 +39,7 @@ jobs:
           ssh-keyscan -H www.manoskarystinos.com >> ~/.ssh/known_hosts
 
           # Sync the build directory to the server
-          rsync -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ ubuntu@www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
+          rsync -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
 
           # Restart uWSGI
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ubuntu@www.manoskarystinos.com 'sudo systemctl restart uwsgi'
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'sudo systemctl restart uwsgi'
