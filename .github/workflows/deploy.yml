@@ -26,6 +26,7 @@ jobs:
 
       - name: Deploy to production server
         env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           SSH_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
           # Create .ssh directory
