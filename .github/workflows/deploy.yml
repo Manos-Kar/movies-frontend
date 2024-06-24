@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: Deploy Frontend to Production
 
 on:
   push:
@@ -12,34 +12,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          ssh-key: ${{ secrets.DELPOY_KEY }}
+          node-version: "20.10.0"
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.10.x # Specify your Python version
+      - name: Install dependencies
+        run: npm install
 
-      - name: Activate virtual environment
-        run: source ../venv/bin/activate # Adjust with the correct path
+      - name: Build the frontend
+        run: npm run build
 
-      - name: Pull latest frontend version
-        run: git pull origin master
-
-      - name: Build React app
+      - name: Deploy to production server
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
-          npm install
-          npm run build
-
-      - name: Replace frontend build
-        run: |
-          rm -rf /var/www/manos-movies/movies-backend/frontend_build
-          mv ./build /var/www/manos-movies/movies-backend/frontend_build
-
-      - name: Collect static files
-        run: |
-          cd ../movies-backend/ 
-          python manage.py collectstatic
-
-      - name: Restart uWSGI
-        run: sudo systemctl restart uwsgi
+          echo "${SSH_KEY}" > deploy_key
+          chmod 600 deploy_key
+          rsync -e "ssh -i deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
+          ssh -i deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'sudo systemctl restart uwsgi'
