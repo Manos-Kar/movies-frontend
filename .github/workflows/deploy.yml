@@ -23,8 +23,8 @@ jobs:
           ls -la ~/.ssh
           sudo cat ~/.ssh/deploy_key
           sudo head -n 5 ~/.ssh/deploy_key
-          ssh-keyscan -H www.manoskarystinos.com >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'echo "SSH connection successful"'
+          ssh-keyscan -H emmanouil.karystinos@gmail.com@www.manoskarystinos.com >> ~/.ssh/known_hosts
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no emmanouil.karystinos@gmail.com@www.manoskarystinos.com 'echo "SSH connection successful"'
         env:
           SSH_KEY: ${{ secrets.DEPLOY_KEY }}
 
