@@ -32,7 +32,7 @@ jobs:
           mkdir -p ~/.ssh
 
           # Add the SSH key
-          echo "${SSH_KEY}" | base64 --decode > ~/.ssh/deploy_key
+          echo "${SSH_KEY}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
 
           # Add the remote server to known_hosts
