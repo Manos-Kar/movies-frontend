@@ -13,6 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Debug SSH setup
+        run: |
+          # Create .ssh directory
+          mkdir -p ~/.ssh
+          # Add the SSH key
+          echo "${SSH_KEY}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ls -la ~/.ssh
+          sudo cat ~/.ssh/deploy_key
+          sudo head -n 5 ~/.ssh/deploy_key
+          ssh-keyscan -H www.manoskarystinos.com >> ~/.ssh/known_hosts
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'echo "SSH connection successful"'
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_KEY }}
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -23,21 +38,6 @@ jobs:
 
       - name: Build the frontend
         run: npm run build
-
-      - name: Debug SSH setup
-        run: |
-          # Create .ssh directory
-          mkdir -p ~/.ssh
-          # Add the SSH key
-          echo "${SSH_KEY}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ls -la ~/.ssh
-          cat ~/.ssh/deploy_key
-          head -n 5 ~/.ssh/deploy_key
-          ssh-keyscan -H www.manoskarystinos.com >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'echo "SSH connection successful"'
-        env:
-          SSH_KEY: ${{ secrets.DEPLOY_KEY }}
 
       - name: Deploy to production server
         env:
