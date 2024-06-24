@@ -13,22 +13,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.10.0"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the frontend
+        run: npm run build
+
       - name: Deploy to production server
         env:
-          SSH_KEY: ${{ secrets.DEPLOY_KEY }}
-        run: |
-          echo "SSH_KEY value: $SSH_KEY"
-          # Continue with your deployment steps using $SSH_KEY
-          
-      - name: Deploy to production server
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           SSH_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
           # Create .ssh directory
           mkdir -p ~/.ssh
-          
+
           # Add the SSH key
           echo "${SSH_KEY}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          cat ~/.ssh/deploy_key
+
+          # Add the remote server to known_hosts
+          ssh-keyscan -H www.manoskarystinos.com >> ~/.ssh/known_hosts
+
+          # Sync the build directory to the server
+          rsync -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
+
+          # Restart uWSGI
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'sudo systemctl restart uwsgi'
