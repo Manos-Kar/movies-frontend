@@ -13,32 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Debug SSH setup
-        run: |
-          # Create .ssh directory
-          mkdir -p ~/.ssh
-          # Add the SSH key
-          echo "${SSH_KEY}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ls -la ~/.ssh
-          sudo cat ~/.ssh/deploy_key
-          sudo head -n 5 ~/.ssh/deploy_key
-          ssh-keyscan -H emmanouil.karystinos@gmail.com@www.manoskarystinos.com >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no emmanouil.karystinos@gmail.com@www.manoskarystinos.com 'echo "SSH connection successful"'
-        env:
-          SSH_KEY: ${{ secrets.DEPLOY_KEY }}
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20.10.0'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build the frontend
-        run: npm run build
-
       - name: Deploy to production server
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
@@ -50,21 +24,4 @@ jobs:
           # Add the SSH key
           echo "${SSH_KEY}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-
-          # Add the remote server to known_hosts
-          ssh-keyscan -H www.manoskarystinos.com >> ~/.ssh/known_hosts
-          
-          # Display the contents of the .ssh directory for debugging
-          ls -la ~/.ssh
-          
-          # Display the first few lines of the SSH key for debugging
-          head -n 5 ~/.ssh/deploy_key
-          
-          # Test the SSH connection for debugging
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'echo "SSH connection successful"'
-
-          # Sync the build directory to the server
-          rsync -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
-          
-          # Restart uWSGI
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'sudo systemctl restart uwsgi'
+          cat ~/.ssh/deploy_key
