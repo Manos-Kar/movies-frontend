@@ -15,6 +15,13 @@ jobs:
 
       - name: Deploy to production server
         env:
+          SSH_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          echo "SSH_KEY value: $SSH_KEY"
+          # Continue with your deployment steps using $SSH_KEY
+          
+      - name: Deploy to production server
+        env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           SSH_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
