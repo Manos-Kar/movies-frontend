@@ -1,0 +1,43 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.x # Specify your Python version
+
+      - name: Activate virtual environment
+        run: source ../venv/bin/activate # Adjust with the correct path
+
+      - name: Pull latest frontend version
+        run: git pull origin master
+
+      - name: Build React app
+        run: |
+          npm install
+          npm run build
+
+      - name: Replace frontend build
+        run: |
+          rm -rf /var/www/manos-movies/movies-backend/frontend_build
+          mv ./build /var/www/manos-movies/movies-backend/frontend_build
+
+      - name: Collect static files
+        run: |
+          cd ../movies-backend/ 
+          python manage.py collectstatic
+
+      - name: Restart uWSGI
+        run: sudo systemctl restart uwsgi
