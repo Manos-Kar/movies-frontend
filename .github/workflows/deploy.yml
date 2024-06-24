@@ -28,7 +28,8 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
-          echo "${SSH_KEY}" > deploy_key
+          echo "${SSH_KEY}" | base64 --decode > deploy_key
           chmod 600 deploy_key
-          rsync -e "ssh -i deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
-          ssh -i deploy_key -o StrictHostKeyChecking=no www.manoskarystinos.com 'sudo systemctl restart uwsgi'
+          ssh-keyscan -H your-server-ip-or-domain >> ~/.ssh/known_hosts
+          rsync -e "ssh -i deploy_key -o StrictHostKeyChecking=no" -avz --delete ./build/ ubuntu@www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build
+          ssh -i deploy_key -o StrictHostKeyChecking=no ubuntu@www.manoskarystinos.com 'sudo systemctl restart uwsgi'
