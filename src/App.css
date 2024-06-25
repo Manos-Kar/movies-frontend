@@ -1,12 +1,12 @@
 .App {
   text-align: center;
+  background-color: rgb(38, 38, 38);
 }
 .App .title {
   font-size: 12px;
 }
 .App .subtitle {
   font-size: 24px;
-  letter-spacing: 9px;
   font-weight: bold;
   margin-top: -16px;
   padding-left: 12px;
@@ -28,7 +28,6 @@
 }
 
 .App-header {
-  background-color: rgb(38, 38, 38);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -52,11 +51,68 @@
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: Thicccboi, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+.header {
+  display: flex;
+  flex-direction: row;
+}
+.header .leftHeader {
+  margin-left: 20px;
+  margin-right: 20px;
+  min-width: 300px;
+}
+.header .leftHeader .leftHeaderTitle {
+  color: white;
+  font-weight: 500;
+}
+.header .rightHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.header .rightHeader .rightHeaderMenuContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 100px;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton {
+  margin: 0 20px 0 20px;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton .headerMenuButtonText {
+  color: white;
+  font-weight: 500;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton .headerMenuButtonText:hover {
+  cursor: pointer;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton .headerMenuButtonText.inactive {
+  animation: fadeOut 0.5s;
+  opacity: 0.3;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton .headerMenuButtonText.active {
+  animation: fadeIn 0.5s;
+  opacity: 1;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=app.css.map */
