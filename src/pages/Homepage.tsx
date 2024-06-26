@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BackgroundVideo from "../components/BackgroundVideo";
 
 function Homepage() {
+  const [nameRowClass, setNameRowClass] = useState("nameRowDiv3");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setNameRowClass("nameRowDiv2");
+    }, 3000);
+  }, []);
   return (
     <div className="homepage">
       <BackgroundVideo />
@@ -17,7 +24,7 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <div className="nameRowDiv2">
+      <div className={nameRowClass}>
         <p className="nameRow 2">KARYSTINOS</p>
       </div>
       <div className="nameRowDiv3">

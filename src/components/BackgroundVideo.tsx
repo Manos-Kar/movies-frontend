@@ -7,15 +7,15 @@ function BackgroundVideo() {
     <div className="imagePlaceholder">
       <ReactPlayer
         // class="backgroundImage"
-        url="https://player.vimeo.com/video/264692804?h=fe55d38887" // Replace with your Vimeo video URL
+        url="https://vimeo.com/389223841#t=10s" // Replace with your Vimeo video URL
         playing={true}
-        width="120%"
+        width="100%"
         height="100%"
         loop
         volume={0}
         style={{
           borderRadius: "30px",
-          margin: "-10px",
+          margin: "-50px",
           width: "calc(100% - 60px)",
           height: "calc(100% - 100px)",
         }}
