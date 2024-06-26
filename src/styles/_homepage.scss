@@ -1,0 +1,85 @@
+.homepage {
+  .imagePlaceholder {
+    width: 100%;
+    height: 100vh;
+    top: 40px;
+    position: fixed;
+    overflow: hidden;
+    .backgroundImage {
+      width: calc(100% - 60px);
+      height: calc(100% - 100px);
+      border-radius: 30px;
+      margin: 30px;
+    }
+  }
+
+  .nameComponent {
+    background-color: $bg-color;
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 500px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .nameRow {
+      color: $text_basic;
+      font-family: "THICCCBOI-Bold";
+      font-size: 240px;
+      font-weight: 500;
+      margin: -10px;
+      margin-left: 60px;
+    }
+    .nameRowDiv {
+      margin: -10px;
+      display: flex;
+      flex-direction: row;
+      width: fit-content;
+      position: relative;
+
+      .namesubtextcontainer {
+        color: $text_basic;
+        margin-left: 40px;
+        font-size: 24px;
+        font-weight: 500;
+        width: 350px;
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+        .namesubtext {
+          position: absolute;
+          animation: moveUp 1.5s;
+        }
+      }
+    }
+  }
+  .nameRowDiv2,
+  .nameRowDiv3 {
+    position: relative;
+    background-color: $bg-color;
+    &.nameRowDiv2 {
+      mix-blend-mode: darken;
+    }
+    .nameRow {
+      color: $text_basic;
+      font-family: "THICCCBOI-Bold";
+      font-size: 230px;
+      font-weight: 500;
+      margin: -10px;
+      margin-left: 60px;
+    }
+  }
+  .emptyDiv {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    top: 200px;
+  }
+  100% {
+    top: 0px;
+  }
+}

@@ -1,74 +1,32 @@
 @import "./_variables.scss";
-
-.App {
-  text-align: center;
-  background-color: $bg_color;
-  .title {
-    font-size: 12px;
-  }
-  .subtitle {
-    font-size: 24px;
-
-    font-weight: bold;
-    margin-top: -16px;
-    padding-left: 12px;
-  }
-}
-
-.App-logo-div {
-  height: 240px;
-  width: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  border-radius: 8px;
-  .App-logo {
-    height: 200px;
-    pointer-events: none;
-    border-radius: 20px;
-  }
-}
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@import "./_homepage.scss";
+@import "./_customFonts.scss";
 
 body {
   margin: 0;
-  font-family: Thicccboi, "Helvetica Neue", sans-serif;
+  font-family: "THICCCBOI-Medium";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $bg_color;
 }
 
 .header {
   display: flex;
   flex-direction: row;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  background-color: $bg_color;
+
   .leftHeader {
     margin-left: 20px;
     margin-right: 20px;
     min-width: 300px;
     .leftHeaderTitle {
       color: white;
-      font-weight: 500;
+      font-weight: 300;
+      font-size: 19px;
     }
   }
   .rightHeader {
@@ -81,11 +39,13 @@ body {
       flex-direction: row;
       justify-content: flex-end;
       margin-right: 100px;
+      cursor: pointer;
       .headerMenuButton {
         margin: 0 20px 0 20px;
         .headerMenuButtonText {
           color: white;
           font-weight: 500;
+          font-size: 19px;
           &:hover {
             cursor: pointer;
           }

@@ -1,0 +1,217 @@
+.homepage .imagePlaceholder {
+  width: 100%;
+  height: 100vh;
+  top: 40px;
+  position: fixed;
+  overflow: hidden;
+}
+.homepage .imagePlaceholder .backgroundImage {
+  width: calc(100% - 60px);
+  height: calc(100% - 100px);
+  border-radius: 30px;
+  margin: 30px;
+}
+.homepage .nameComponent {
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 500px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.homepage .nameComponent .nameRow {
+  color: rgb(228, 204, 171);
+  font-family: "THICCCBOI-Bold";
+  font-size: 240px;
+  font-weight: 500;
+  margin: -10px;
+  margin-left: 60px;
+}
+.homepage .nameComponent .nameRowDiv {
+  margin: -10px;
+  display: flex;
+  flex-direction: row;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+}
+.homepage .nameComponent .nameRowDiv .namesubtextcontainer {
+  color: rgb(228, 204, 171);
+  margin-left: 40px;
+  font-size: 24px;
+  font-weight: 500;
+  width: 350px;
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.homepage .nameComponent .nameRowDiv .namesubtextcontainer .namesubtext {
+  position: absolute;
+  animation: moveUp 1.5s;
+}
+.homepage .nameRowDiv2,
+.homepage .nameRowDiv3 {
+  position: relative;
+  background-color: rgb(0, 0, 0);
+}
+.homepage .nameRowDiv2.nameRowDiv2,
+.homepage .nameRowDiv3.nameRowDiv2 {
+  mix-blend-mode: darken;
+}
+.homepage .nameRowDiv2 .nameRow,
+.homepage .nameRowDiv3 .nameRow {
+  color: rgb(228, 204, 171);
+  font-family: "THICCCBOI-Bold";
+  font-size: 230px;
+  font-weight: 500;
+  margin: -10px;
+  margin-left: 60px;
+}
+.homepage .emptyDiv {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+@keyframes moveUp {
+  0% {
+    top: 200px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+/*Here add all the custom fonts as follows*/
+/*CustomFont*/
+/*THICCCBOI*/
+@font-face {
+  font-family: "THICCCBOI-Black";
+  src: url(../resources/fonts/THICCCBOI-Black.ttf);
+  font-style: normal;
+  font-stretch: 100%;
+}
+@font-face {
+  font-family: "THICCCBOI-Bold";
+  src: url(../resources/fonts/THICCCBOI-Bold.ttf);
+  font-style: normal;
+  font-stretch: 100%;
+}
+@font-face {
+  font-family: "THICCCBOI-ExtraBold";
+  src: url(../resources/fonts/THICCCBOI-ExtraBold.ttf);
+  font-style: normal;
+  font-stretch: 100%;
+}
+@font-face {
+  font-family: "THICCCBOI-Light";
+  src: url(../resources/fonts/THICCCBOI-Light.ttf);
+  font-style: normal;
+  font-stretch: 100%;
+}
+@font-face {
+  font-family: "THICCCBOI-Medium";
+  src: url(../resources/fonts/THICCCBOI-Medium.ttf);
+  font-style: normal;
+  font-stretch: 100%;
+}
+@font-face {
+  font-family: "THICCCBOI-Regular";
+  src: url(../resources/fonts/THICCCBOI-Regular.ttf);
+  font-style: normal;
+  font-stretch: 100%;
+}
+@font-face {
+  font-family: "THICCCBOI-Semibold";
+  src: url(../resources/fonts/THICCCBOI-SemiBold.ttf);
+  font-style: normal;
+  font-stretch: 100%;
+}
+@font-face {
+  font-family: "THICCCBOI-ThicccAF";
+  src: url(../resources/fonts/THICCCBOI-ThicccAF.ttf);
+  font-style: normal;
+  font-stretch: 100%;
+}
+@font-face {
+  font-family: "THICCCBOI-Thin";
+  src: url(../resources/fonts/THICCCBOI-Thin.ttf);
+  font-style: normal;
+  font-stretch: 100%;
+}
+body {
+  margin: 0;
+  font-family: "THICCCBOI-Medium";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(0, 0, 0);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+}
+.header .leftHeader {
+  margin-left: 20px;
+  margin-right: 20px;
+  min-width: 300px;
+}
+.header .leftHeader .leftHeaderTitle {
+  color: white;
+  font-weight: 300;
+  font-size: 19px;
+}
+.header .rightHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.header .rightHeader .rightHeaderMenuContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 100px;
+  cursor: pointer;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton {
+  margin: 0 20px 0 20px;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton .headerMenuButtonText {
+  color: white;
+  font-weight: 500;
+  font-size: 19px;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton .headerMenuButtonText:hover {
+  cursor: pointer;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton .headerMenuButtonText.inactive {
+  animation: fadeOut 0.5s;
+  opacity: 0.3;
+}
+.header .rightHeader .rightHeaderMenuContainer .headerMenuButton .headerMenuButtonText.active {
+  animation: fadeIn 0.5s;
+  opacity: 1;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=app.css.map */
