@@ -1,0 +1,24 @@
+.pageTitleComponent {
+  margin-top: -200px;
+  position: fixed;
+  width: 100%;
+  .pageTitle {
+    @include bigFont;
+    margin-left: 60px;
+    height: 10px;
+  }
+  .underlineTitle {
+    height: 8px;
+    background-color: $text_basic;
+    animation: widthExpand 1s;
+  }
+}
+
+@keyframes widthExpand {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

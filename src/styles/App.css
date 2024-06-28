@@ -21,10 +21,10 @@
   justify-content: flex-end;
 }
 .homepage .nameComponent .nameRow {
-  color: rgb(228, 204, 171);
   font-family: "THICCCBOI-Bold";
   font-size: 240px;
   font-weight: 500;
+  color: rgb(228, 204, 171);
   margin: -10px;
   margin-left: 60px;
 }
@@ -139,6 +139,33 @@
   font-style: normal;
   font-stretch: 100%;
 }
+.pageTitleComponent {
+  margin-top: -200px;
+  position: fixed;
+  width: 100%;
+}
+.pageTitleComponent .pageTitle {
+  font-family: "THICCCBOI-Bold";
+  font-size: 240px;
+  font-weight: 500;
+  color: rgb(228, 204, 171);
+  margin-left: 60px;
+  height: 10px;
+}
+.pageTitleComponent .underlineTitle {
+  height: 8px;
+  background-color: rgb(228, 204, 171);
+  animation: widthExpand 1s;
+}
+
+@keyframes widthExpand {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
 body {
   margin: 0;
   font-family: "THICCCBOI-Medium";
@@ -162,6 +189,7 @@ body {
   min-width: 300px;
 }
 .header .leftHeader .leftHeaderTitle {
+  cursor: pointer;
   color: white;
   font-weight: 300;
   font-size: 19px;

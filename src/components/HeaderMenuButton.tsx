@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   title: string;
@@ -9,7 +10,11 @@ type Props = {
 };
 
 function HeaderMenuButton(props: Props) {
-  function navigateTo(link: string) {}
+  const navigate = useNavigate();
+
+  function navigateTo(link: string) {
+    navigate(`/${link}`);
+  }
 
   return (
     <div

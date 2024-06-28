@@ -1,11 +1,16 @@
 import React from "react";
 import HeaderMenu from "./HeaderMenu";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+
   return (
     <div className="header">
       <div className="leftHeader">
-        <p className="leftHeaderTitle">MANOS KARYSTINOS FILMS</p>
+        <p className="leftHeaderTitle" onClick={() => navigate("/")}>
+          MANOS KARYSTINOS FILMS
+        </p>
       </div>
       <div className="rightHeader">
         <HeaderMenu />

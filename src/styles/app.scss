@@ -1,6 +1,7 @@
 @import "./_variables.scss";
 @import "./_homepage.scss";
 @import "./_customFonts.scss";
+@import "./_pages.scss";
 
 body {
   margin: 0;
@@ -24,6 +25,7 @@ body {
     margin-right: 20px;
     min-width: 300px;
     .leftHeaderTitle {
+      cursor: pointer;
       color: white;
       font-weight: 300;
       font-size: 19px;

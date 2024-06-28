@@ -5,6 +5,7 @@
     top: 40px;
     position: fixed;
     overflow: hidden;
+
     .backgroundImage {
       width: calc(100% - 60px);
       height: calc(100% - 100px);
@@ -22,10 +23,7 @@
     flex-direction: column;
     justify-content: flex-end;
     .nameRow {
-      color: $text_basic;
-      font-family: "THICCCBOI-Bold";
-      font-size: 240px;
-      font-weight: 500;
+      @include bigFont;
       margin: -10px;
       margin-left: 60px;
     }

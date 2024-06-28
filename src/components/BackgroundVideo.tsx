@@ -9,15 +9,13 @@ function BackgroundVideo() {
         // class="backgroundImage"
         url="https://vimeo.com/389223841#t=10s" // Replace with your Vimeo video URL
         playing={true}
-        width="100%"
+        width="calc(100% - 40px)"
         height="100%"
         loop
         volume={0}
         style={{
-          borderRadius: "30px",
-          margin: "-50px",
-          width: "calc(100% - 60px)",
-          height: "calc(100% - 100px)",
+          borderRadius: "300px",
+          margin: "-50px 20px 0 20px",
         }}
         onReady={(player) => player.seekTo(20)}
       />
