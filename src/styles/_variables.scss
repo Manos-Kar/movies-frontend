@@ -3,10 +3,18 @@ $bg_color2: rgb(27, 27, 27);
 $inactive: rgb(76, 76, 76);
 $text_basic: rgb(228, 204, 171);
 $bigFontSize: 240px;
+$subtitleFontSize: 40px;
 
 @mixin bigFont {
   font-family: "THICCCBOI-Bold";
   font-size: $bigFontSize;
+  font-weight: 500;
+  color: $text_basic;
+}
+
+@mixin subtitle {
+  font-family: "THICCCBOI-Bold";
+  font-size: $subtitleFontSize;
   font-weight: 500;
   color: $text_basic;
 }

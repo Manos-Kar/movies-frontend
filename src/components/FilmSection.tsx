@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Subtitle from "./Subtitle";
+import filmsJson from "../resources/contentJsons/films.json";
+import FilmPoster from "./FilmPoster";
 
-function FilmSection() {
+type Props = {
+  section: keyof typeof filmsJson;
+};
+
+function FilmSection(props: Props) {
+  const [films, setFilms] = useState(filmsJson[props.section]);
+
   return (
-    <div className="pageComponent">
-      <Subtitle subtitle="SHORTS" />
+    <div className="filmSectionComponent">
+      <Subtitle subtitle={props.section.toUpperCase()} />
+      <div className="filmPostersContainer">
+        {films.map((film, index) => (
+          <FilmPoster
+            film={film}
+            key={`filmPoster-${props.section}-${index}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }

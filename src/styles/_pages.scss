@@ -1,7 +1,8 @@
 .pageTitleComponent {
-  margin-top: -200px;
+  top: -200px;
   position: fixed;
   width: 100%;
+  background-color: $bg-color;
   .pageTitle {
     @include bigFont;
     margin-left: 60px;
@@ -20,5 +21,72 @@
   }
   100% {
     width: 100%;
+  }
+}
+
+.filmSectionsContainer {
+  margin-top: 300px;
+  .filmSectionComponent {
+    height: 560px;
+
+    .subtitleComponent {
+      .subtitle {
+        margin-left: 40px;
+        padding-top: 40px;
+        @include subtitle;
+      }
+    }
+    .filmPostersContainer {
+      display: flex;
+      flex-direction: row;
+      margin-left: 40px;
+
+      .filmPosterContainer {
+        z-index: 0;
+        margin-top: -30px;
+        height: 500px;
+        border-radius: 5px;
+        border: 0.5px solid $text_basic;
+        margin-right: 30px;
+        &.zoomIn {
+          border: 2px solid $text_basic;
+          margin-left: -1.5px;
+          margin-right: 28.5px;
+          margin-top: -31.5px;
+        }
+        z-index: 0;
+        overflow: hidden;
+        .filmPoster {
+          z-index: 1;
+          height: 500px;
+          cursor: pointer;
+          &.zoomIn {
+            animation: zoomIn 1s;
+            transform: scale(1.1);
+          }
+          &.zoomOut {
+            animation: zoomOut 1s;
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }

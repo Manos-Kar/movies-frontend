@@ -1,10 +1,28 @@
-import React from "react";
-import Subtitle from "./Subtitle";
+import React, { useState } from "react";
+import { Film } from "../models/film";
+import { useNavigate } from "react-router-dom";
 
-function FilmPoster() {
+type Props = {
+  film: Film;
+};
+
+function FilmPoster(props: Props) {
+  const [extraClass, setExtraClass] = useState<string>("zoomOut");
+  const navigate = useNavigate();
+  function createPathForUrl(title: string) {
+    return title.toLowerCase().replace(".", "").replace(" ", "-");
+  }
+
   return (
-    <div className="pageComponent">
-      <Subtitle subtitle="SHORTS" />
+    <div className={`filmPosterContainer ${extraClass}`}>
+      <img
+        src={props.film.poster_url}
+        alt="filmPoster"
+        className={`filmPoster ${extraClass}`}
+        onMouseEnter={() => setExtraClass("zoomIn")}
+        onMouseLeave={() => setExtraClass("zoomOut")}
+        onClick={() => navigate(`/films/${createPathForUrl(props.film.title)}`)}
+      />
     </div>
   );
 }
