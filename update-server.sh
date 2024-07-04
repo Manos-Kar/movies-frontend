@@ -44,6 +44,15 @@ npm run build || error "Failed to build the frontend"
 # Step 4: SCP the build to remote server
 log "Step 4: SCP the build to remote server"
 scp -r build/* www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build || error "Failed to copy build to remote server"
+if [ -d www.manoskarystinos.com:/var/www/manos-movies/movies-backend/moviesapp/templates/moviesapp ]
+then
+    echo "Copying index.html inside the django template"
+    scp build/index.html www.manoskarystinos.com:/var/www/manos-movies/movies-backend/moviesapp/templates/moviesapp || error "Failed to copy index.html to remote server"
+else
+    echo "Template directory doesn't exist. Creating template directory..."
+    mkdir -p www.manoskarystinos.com:/var/www/manos-movies/movies-backend/moviesapp/templates/moviesapp
+    echo "Copying index.html inside the django template"
+    scp build/index.html www.manoskarystinos.com:/var/www/manos-movies/movies-backend/moviesapp/templates/moviesapp || error "Failed to copy index.html to remote server"
 
 # Step 5: Activate venv and run collectstatic on remote server
 log "Step 5: Activate venv and run collectstatic on remote server"
