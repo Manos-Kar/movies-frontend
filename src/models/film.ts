@@ -1,5 +1,6 @@
 export class Film {
   title: string;
+  slug: string;
   year: number;
   poster_url: string;
   film_link: string;
@@ -7,12 +8,14 @@ export class Film {
 
   constructor(
     title: string,
+    slug: string,
     year: number,
     poster_url: string,
     film_link: string,
     summary: string
   ) {
     this.title = title;
+    this.slug = slug;
     this.year = year;
     this.poster_url = poster_url;
     this.film_link = film_link;

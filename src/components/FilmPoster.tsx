@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { Film } from "../models/film";
+import filmsJson from "../resources/contentJsons/films.json";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
+  filmSection: keyof typeof filmsJson;
   film: Film;
 };
 
 function FilmPoster(props: Props) {
   const [extraClass, setExtraClass] = useState<string>("zoomOut");
   const navigate = useNavigate();
-  function createPathForUrl(title: string) {
-    return title.toLowerCase().replace(".", "").replace(" ", "-");
-  }
 
   return (
     <div className={`filmPosterContainer ${extraClass}`}>
@@ -21,7 +20,9 @@ function FilmPoster(props: Props) {
         className={`filmPoster ${extraClass}`}
         onMouseEnter={() => setExtraClass("zoomIn")}
         onMouseLeave={() => setExtraClass("zoomOut")}
-        onClick={() => navigate(`/films/${createPathForUrl(props.film.title)}`)}
+        onClick={() =>
+          navigate(`/films/${props.filmSection}/${props.film.slug}`)
+        }
       />
     </div>
   );

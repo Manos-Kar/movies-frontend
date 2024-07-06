@@ -8,7 +8,7 @@ type Props = {
 };
 
 function FilmSection(props: Props) {
-  const [films, setFilms] = useState(filmsJson[props.section]);
+  const films = useState(filmsJson[props.section])[0];
 
   return (
     <div className="filmSectionComponent">
@@ -16,6 +16,7 @@ function FilmSection(props: Props) {
       <div className="filmPostersContainer">
         {films.map((film, index) => (
           <FilmPoster
+            filmSection={props.section}
             film={film}
             key={`filmPoster-${props.section}-${index}`}
           />

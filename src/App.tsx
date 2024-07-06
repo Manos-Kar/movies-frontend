@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage";
 import Films from "./pages/Films";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import FilmPage from "./pages/FilmPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/films" element={<Films />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/films/:filmSection/:filmName" element={<FilmPage />} />
         </Routes>
         <Header />
       </Router>

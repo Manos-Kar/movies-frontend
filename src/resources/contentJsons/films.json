@@ -2,36 +2,49 @@
   "shorts": [
     {
       "title": "Carrots and Cucumbers",
+      "slug": "carrots-and-cucumbers",
       "year": 2016,
       "poster_url": "/images/carrotsAndCucumbersPoster.jpg",
-      "film_link": "",
+      "film_link": "https://vimeo.com/162063590",
       "summary": ""
     },
     {
       "title": "Mr. VI",
+      "slug": "mr-vi",
       "year": 2016,
       "poster_url": "/images/MrViPoster.jpg",
-      "film_link": "",
+      "film_link": "https://vimeo.com/389223841",
       "summary": ""
     },
     {
       "title": "Repressed",
+      "slug": "repressed",
       "year": 2018,
       "poster_url": "/images/repressedPoster.jpg",
-      "film_link": "",
+      "film_link": "https://youtu.be/E2jmwdu58D0",
+      "summary": ""
+    },
+    {
+      "title": "Nu Banana",
+      "slug": "nu-banana",
+      "year": 2019,
+      "poster_url": "/images/nuBananaPoster.png",
+      "film_link": "https://vimeo.com/357674858/816196fa05?share=copy",
       "summary": ""
     },
     {
       "title": "Strawberries",
+      "slug": "strawberries",
       "year": 2019,
       "poster_url": "/images/strawberriesPoster.jpg",
-      "film_link": "",
+      "film_link": "https://vimeo.com/389221777",
       "summary": ""
     }
   ],
   "features": [
     {
       "title": "Dark Illusion",
+      "slug": "dark-illusion",
       "year": 2014,
       "poster_url": "/images/darkIllusionPoster.jpg",
       "film_link": "https://vimeo.com/karystinos/darkillusionthemovie",

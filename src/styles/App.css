@@ -139,9 +139,20 @@
   font-style: normal;
   font-stretch: 100%;
 }
+.filmInfo .filmVideoContainer {
+  height: 500px;
+  width: 900px;
+  margin-top: 350px;
+  border-radius: 5px;
+  border: 1px solid rgb(228, 204, 171);
+  margin-left: 60px;
+  padding: 20px;
+}
+
 .pageTitleComponent {
-  top: -200px;
+  top: 60px;
   position: fixed;
+  min-height: 220px;
   width: 100%;
   background-color: rgb(0, 0, 0);
 }
@@ -151,12 +162,33 @@
   font-weight: 500;
   color: rgb(228, 204, 171);
   margin-left: 60px;
-  height: 10px;
+  white-space: nowrap; /* Prevent text wrapping */
+  margin-top: -20px;
+  margin-bottom: -20px;
+  text-align: start;
+  position: absolute; /* Position absolutely relative to the container */
+}
+.pageTitleComponent .pageTitleInvisible {
+  font-family: "THICCCBOI-Bold";
+  font-size: 240px;
+  font-weight: 500;
+  color: rgb(228, 204, 171);
+  position: absolute;
+  top: -300px;
+  margin-top: -20px;
+  margin-bottom: -20px;
+  margin-left: 60px;
+  white-space: nowrap; /* Prevent text wrapping */
+  opacity: 0%;
 }
 .pageTitleComponent .underlineTitle {
   height: 8px;
   background-color: rgb(228, 204, 171);
   animation: widthExpand 1s;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
 }
 
 @keyframes widthExpand {
@@ -168,14 +200,14 @@
   }
 }
 .filmSectionsContainer {
-  margin-top: 300px;
+  margin-top: 320px;
 }
 .filmSectionsContainer .filmSectionComponent {
-  height: 560px;
+  min-height: 460px;
+  margin-top: 20px;
 }
 .filmSectionsContainer .filmSectionComponent .subtitleComponent .subtitle {
   margin-left: 40px;
-  padding-top: 40px;
   font-family: "THICCCBOI-Bold";
   font-size: 40px;
   font-weight: 500;
@@ -185,11 +217,14 @@
   display: flex;
   flex-direction: row;
   margin-left: 40px;
+  width: 90%;
+  min-height: 415px;
+  overflow-x: scroll;
+  padding: 4px;
 }
 .filmSectionsContainer .filmSectionComponent .filmPostersContainer .filmPosterContainer {
-  z-index: 0;
-  margin-top: -30px;
-  height: 500px;
+  height: 400px;
+  min-width: 260px;
   border-radius: 5px;
   border: 0.5px solid rgb(228, 204, 171);
   margin-right: 30px;
@@ -200,11 +235,12 @@
   border: 2px solid rgb(228, 204, 171);
   margin-left: -1.5px;
   margin-right: 28.5px;
-  margin-top: -31.5px;
+  margin-top: -1.5px;
 }
 .filmSectionsContainer .filmSectionComponent .filmPostersContainer .filmPosterContainer .filmPoster {
   z-index: 1;
-  height: 500px;
+  height: 400px;
+  padding: 0;
   cursor: pointer;
 }
 .filmSectionsContainer .filmSectionComponent .filmPostersContainer .filmPosterContainer .filmPoster.zoomIn {
