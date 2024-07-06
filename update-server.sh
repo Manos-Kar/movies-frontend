@@ -44,15 +44,30 @@ npm run build || error "Failed to build the frontend"
 # Step 4: SCP the build to remote server
 log "Step 4: SCP the build to remote server"
 scp -r build/* www.manoskarystinos.com:/var/www/manos-movies/movies-backend/frontend_build || error "Failed to copy build to remote server"
-if [ -d www.manoskarystinos.com:/var/www/manos-movies/movies-backend/moviesapp/templates/moviesapp ]
-then
+
+REMOTE_HOST="www.manoskarystinos.com"
+REMOTE_PATH="/var/www/manos-movies/movies-backend/moviesapp/templates/moviesapp"
+LOCAL_FILE="build/index.html"
+REMOTE_DESTINATION="${REMOTE_HOST}:${REMOTE_PATH}"
+
+# Function to handle errors
+error() {
+    echo "$1"
+    exit 1
+}
+
+# Check if the remote directory exists
+ssh ${REMOTE_HOST} << EOF
+if [ -d "${REMOTE_PATH}" ]; then
     echo "Copying index.html inside the django template"
-    scp build/index.html www.manoskarystinos.com:/var/www/manos-movies/movies-backend/moviesapp/templates/moviesapp || error "Failed to copy index.html to remote server"
 else
     echo "Template directory doesn't exist. Creating template directory..."
-    mkdir -p www.manoskarystinos.com:/var/www/manos-movies/movies-backend/moviesapp/templates/moviesapp
-    echo "Copying index.html inside the django template"
-    scp build/index.html www.manoskarystinos.com:/var/www/manos-movies/movies-backend/moviesapp/templates/moviesapp || error "Failed to copy index.html to remote server"
+    mkdir -p "${REMOTE_PATH}" || { echo "Failed to create directory"; exit 1; }
+fi
+EOF
+
+# Copy the file to the remote directory
+scp "${LOCAL_FILE}" "${REMOTE_DESTINATION}" || error "Failed to copy index.html to remote server"
 
 # Step 5: Activate venv and run collectstatic on remote server
 log "Step 5: Activate venv and run collectstatic on remote server"
