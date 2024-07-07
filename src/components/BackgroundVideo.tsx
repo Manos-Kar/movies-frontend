@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import underConstruction from "../resources/images/under-construction-gif-11.gif";
 import ReactPlayer from "react-player/vimeo";
+import filmsJson from "../resources/contentJsons/films.json";
 
 function BackgroundVideo() {
+  const [filmLink, setFilmLink] = useState("");
+  useEffect(() => {
+    let filmLinkArray = [];
+
+    for (let film of filmsJson["shorts"]) {
+      filmLinkArray.push(film.film_link);
+    }
+
+    const randomIndex = Math.floor(Math.random() * filmLinkArray.length);
+    setFilmLink(filmLinkArray[randomIndex]);
+  }, []);
+
   return (
     <div className="imagePlaceholder">
       <ReactPlayer
-        // class="backgroundImage"
-        url="https://vimeo.com/389223841#t=10s" // Replace with your Vimeo video URL
+        url={filmLink}
         playing={true}
         width="calc(100% - 40px)"
         height="100%"
