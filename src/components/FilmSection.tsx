@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import Subtitle from "./Subtitle";
 import filmsJson from "../resources/contentJsons/films.json";
 import FilmPoster from "./FilmPoster";
+import { PosterSection } from "../models/types";
 
 type Props = {
   section: keyof typeof filmsJson;
+  films: PosterSection[];
 };
 
 function FilmSection(props: Props) {
-  const films = useState(filmsJson[props.section])[0];
-
   return (
     <div className="filmSectionComponent">
       <Subtitle subtitle={props.section.toUpperCase()} />
       <div className="filmPostersContainer">
-        {films.map((film, index) => (
+        {props.films.map((film, index) => (
           <FilmPoster
             filmSection={props.section}
             film={film}

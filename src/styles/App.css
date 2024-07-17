@@ -139,14 +139,30 @@
   font-style: normal;
   font-stretch: 100%;
 }
+.filmInfo {
+  margin-top: 350px;
+  display: flex;
+  flex-direction: row;
+}
 .filmInfo .filmVideoContainer {
   height: 500px;
   width: 900px;
-  margin-top: 350px;
   border-radius: 5px;
   border: 1px solid rgb(228, 204, 171);
   margin-left: 60px;
   padding: 20px;
+}
+.filmInfo .filmDetailsContainer {
+  margin-left: 15px;
+  width: 650px;
+}
+.filmInfo .filmDetailsContainer .filmeDetailSection {
+  font-size: 14px;
+}
+.filmInfo .filmDetailsContainer .filmeDetailSection .filmDetailTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .pageTitleComponent {
@@ -274,6 +290,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(0, 0, 0);
+  color: rgb(228, 204, 171);
 }
 
 .header {

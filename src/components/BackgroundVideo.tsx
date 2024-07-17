@@ -29,7 +29,7 @@ function BackgroundVideo() {
           borderRadius: "300px",
           margin: "-50px 20px 0 20px",
         }}
-        onReady={(player) => player.seekTo(20)}
+        onReady={(player) => player.seekTo(60)}
       />
     </div>
   );

@@ -36,6 +36,28 @@ function FilmPage() {
                 controls
               />
             </div>
+            <div className="filmDetailsContainer">
+              <div className="filmeDetailSection">
+                <p className="filmDetailTitle">Summary</p>
+                <p className="filmDetailText">{film.summary}</p>
+              </div>
+              <div className="filmeDetailSection">
+                <p className="filmDetailTitle">Credits</p>
+                <p className="filmDetailText">{film.credits}</p>
+              </div>
+              {film.awards.length > 0 && (
+                <div className="filmeDetailSection">
+                  <p className="filmDetailTitle">Awards</p>
+                  {film.awards.map((award, index) => (
+                    <>
+                      <p className="filmAward" key={`filmAward-${index}`}>
+                        {award}
+                      </p>
+                    </>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
           <PageTitle title={film.title.toUpperCase()} />
         </>

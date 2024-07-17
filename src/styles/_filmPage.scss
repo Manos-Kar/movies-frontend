@@ -1,11 +1,25 @@
 .filmInfo {
+  margin-top: 350px;
+  display: flex;
+  flex-direction: row;
   .filmVideoContainer {
     height: 500px;
     width: 900px;
-    margin-top: 350px;
     border-radius: 5px;
     border: 1px solid $text_basic;
     margin-left: 60px;
     padding: 20px;
+  }
+  .filmDetailsContainer {
+    margin-left: 15px;
+    width: 650px;
+    .filmeDetailSection {
+      font-size: 14px;
+      .filmDetailTitle {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
   }
 }
