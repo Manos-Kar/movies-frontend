@@ -33,7 +33,7 @@ jobs:
           git commit -m "Deployment files"
       - name: Push changes to deploy branch
         env:
-          DEPLOY_KEY: ${{ secrets.MOVIES_DEPLOY_KEY }}
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
           DEPLOY_BRANCH: prod-deploy
         run: |
           chmod 700 $HOME/.ssh/id_rsa && echo "$DEPLOY_KEY" > $HOME/.ssh/id_rsa && chmod 600 $HOME/.ssh
