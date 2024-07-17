@@ -38,5 +38,6 @@ jobs:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
           DEPLOY_BRANCH: prod-deploy
         run: |
+          mkdir $HOME/.ssh && touch $HOME/.ssh/id_rsa
           chmod 700 $HOME/.ssh/id_rsa && echo "$DEPLOY_KEY" > $HOME/.ssh/id_rsa && chmod 600 $HOME/.ssh
           git push -f origin $DEPLOY_BRANCH
