@@ -1,0 +1,74 @@
+{
+  "shorts": [
+    {
+      "title": "Carrots and Cucumbers",
+      "slug": "carrots-and-cucumbers",
+      "year": 2016,
+      "poster_url": "/images/carrotsAndCucumbersPoster.jpg",
+      "film_link": "https://vimeo.com/162063590",
+      "summary": "",
+      "credits": "",
+      "awards": []
+    },
+    {
+      "title": "Mr. VI",
+      "slug": "mr-vi",
+      "year": 2016,
+      "poster_url": "/images/MrViPoster.jpg",
+      "film_link": "https://vimeo.com/389223841",
+      "summary": "",
+      "credits": "",
+      "awards": []
+    },
+    {
+      "title": "Repressed",
+      "slug": "repressed",
+      "year": 2018,
+      "poster_url": "/images/repressedPoster.jpg",
+      "film_link": "https://youtu.be/E2jmwdu58D0",
+      "summary": "",
+      "credits": "",
+      "awards": []
+    },
+    {
+      "title": "Nu Banana",
+      "slug": "nu-banana",
+      "year": 2019,
+      "poster_url": "/images/nuBananaPoster.png",
+      "film_link": "https://vimeo.com/357674858/816196fa05?share=copy",
+      "summary": "",
+      "credits": "",
+      "awards": []
+    },
+    {
+      "title": "Strawberries",
+      "slug": "strawberries",
+      "year": 2019,
+      "poster_url": "/images/strawberriesPoster.jpg",
+      "film_link": "https://vimeo.com/389221777",
+      "summary": "",
+      "credits": "",
+      "awards": []
+    }
+  ],
+  "features": [
+    {
+      "title": "Dark Illusion",
+      "slug": "dark-illusion",
+      "year": 2014,
+      "poster_url": "/images/darkIllusionPoster.jpg",
+      "film_link": "https://vimeo.com/karystinos/darkillusionthemovie",
+      "summary": "Alkis is an introvert photographer with a personality disorder. Despite the strong relationship he has developed with his mother, he’s driven to despair because of the tension between her and his alcoholic father. As a result, he decides to leave the family home and move into his own place. However, a journalism project he gets involved in will disrupt his delicate personal balance, and he will begin to question more and more aspects of the reality he is living. Trapped in a nexus of contradictions, he will try to find the way to redemption.",
+      "credits": "Director: Manos Karystinos\nScript: Anastasia Koziba\nCinematography: Thanasis Konstantopoulos\nEditing: Chris Filippou\nSound: Dimitris Keramydas, Aliki Dima, Eleni Kavouki\nMusic: Bjorn Alexandridis, Marios Podaras aka Deep In Mind\nVocals: Roula Tsernou\nMusician support: Yannis Somaras\nCostumes: Lia Tschenkeli\nMake up: Dimitra Porfyri, Angela Karanasou, Irini Marangou",
+      "awards": [
+        "Winner of the \"FISCHER AUDIENCE AWARD-MICHAEL CACOYANNIS AWARD\" in the 55th Thessaloniki International Film Festival in 2014",
+        "Winner of the \"Best Script Award\" in the 10th Cyprus International Film Festival in 2015",
+        "Winner of the \"Best Actor in a 2nd Leading Role Award\" in the 6th \"Bridges\" International Film Festival",
+        "Winner of the \"GREEK FILM LOVERS CLUB Award\" in the 8th annual London Greek Film Festival",
+        "Official Selection in the 11th Chinese American Film Festival",
+        "Official Selection in the 1st Phoenix Film Festival Melbourne"
+      ]
+    }
+  ],
+  "clips": []
+}

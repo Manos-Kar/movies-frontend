@@ -1,0 +1,84 @@
+@import "./_variables.scss";
+@import "./_homepage.scss";
+@import "./_customFonts.scss";
+@import "./_pages.scss";
+
+body {
+  margin: 0;
+  font-family: "THICCCBOI-Medium";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bg_color;
+  color: $text_basic;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  background-color: $bg_color;
+
+  .leftHeader {
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 300px;
+    .leftHeaderTitle {
+      cursor: pointer;
+      color: white;
+      font-weight: 300;
+      font-size: 19px;
+    }
+  }
+  .rightHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    .rightHeaderMenuContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-right: 100px;
+      cursor: pointer;
+      .headerMenuButton {
+        margin: 0 20px 0 20px;
+        .headerMenuButtonText {
+          color: white;
+          font-weight: 500;
+          font-size: 19px;
+          &:hover {
+            cursor: pointer;
+          }
+          &.inactive {
+            animation: fadeOut 0.5s;
+            opacity: 0.3;
+          }
+          &.active {
+            animation: fadeIn 0.5s;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}

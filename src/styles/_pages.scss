@@ -1,0 +1,117 @@
+@import "./filmPage.scss";
+
+.pageTitleComponent {
+  top: 60px;
+  position: fixed;
+  min-height: 220px;
+  width: 100%;
+  background-color: $bg-color;
+  .pageTitle {
+    @include bigFont;
+    margin-left: 60px;
+    white-space: nowrap; /* Prevent text wrapping */
+    margin-top: -20px;
+    margin-bottom: -20px;
+    text-align: start;
+    position: absolute; /* Position absolutely relative to the container */
+  }
+  .pageTitleInvisible {
+    @include bigFont;
+    position: absolute;
+    top: -300px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+    margin-left: 60px;
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0%;
+  }
+  .underlineTitle {
+    height: 8px;
+    background-color: $text_basic;
+    animation: widthExpand 1s;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+}
+
+@keyframes widthExpand {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.filmSectionsContainer {
+  margin-top: 320px;
+  .filmSectionComponent {
+    min-height: 460px;
+    margin-top: 20px;
+
+    .subtitleComponent {
+      .subtitle {
+        margin-left: 40px;
+        @include subtitle;
+      }
+    }
+    .filmPostersContainer {
+      display: flex;
+      flex-direction: row;
+      margin-left: 40px;
+      width: 90%;
+      min-height: 415px;
+      overflow-x: scroll;
+      padding: 4px;
+
+      .filmPosterContainer {
+        height: 400px;
+        min-width: 260px;
+        border-radius: 5px;
+        border: 0.5px solid $text_basic;
+        margin-right: 30px;
+        &.zoomIn {
+          border: 2px solid $text_basic;
+          margin-left: -1.5px;
+          margin-right: 28.5px;
+          margin-top: -1.5px;
+        }
+        z-index: 0;
+        overflow: hidden;
+        .filmPoster {
+          z-index: 1;
+          height: 400px;
+          padding: 0;
+          cursor: pointer;
+          &.zoomIn {
+            animation: zoomIn 1s;
+            transform: scale(1.1);
+          }
+          &.zoomOut {
+            animation: zoomOut 1s;
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
