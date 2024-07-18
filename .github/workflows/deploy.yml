@@ -26,12 +26,12 @@ jobs:
 
       - name: Commit files
         run: |
-          git checkout -b prod-deploy
+          git checkout -b prod-deploy || git checkout prod-deploy
           sed -i '/^\/build\/*/d' .gitignore
-          git config --local user.email "emmanouil.karystinos@gmail.com"
+          git config --local user.email "auto@gmail.com"
           git config --local user.name "auto-deploy"
           git add .
-          git commit -m "Deployment files"
+          git commit -m "Deployment files" || echo "No changes to commit"
       - name: Push changes to deploy branch
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
