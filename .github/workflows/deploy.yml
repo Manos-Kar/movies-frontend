@@ -26,6 +26,8 @@ jobs:
 
       - name: Commit files
         run: |
+          git branch -D prod-deploy
+          git checkout -b prod-deploy
           sed -i '/^\/build\/*/d' .gitignore
           git config --local user.email "emmanouil.karystinos@gmail.com"
           git config --local user.name "manos-deploy"
