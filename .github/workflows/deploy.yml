@@ -13,23 +13,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: "20.10.0"
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.10.0"
 
-      # - name: Install dependencies
-      #   run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      # - name: Build the frontend
-      #   run: npm run build
+      - name: Build the frontend
+        run: npm run build`
 
       - name: Commit files
         run: |
           git checkout -b prod-deploy
           sed -i '/^\/build\/*/d' .gitignore
           git config --local user.email "emmanouil.karystinos@gmail.com"
-          git config --local user.name "Manos-Kar"
+          git config --local user.name "auto-deploy"
           git add .
           git commit -m "Deployment files"
       - name: Push changes to deploy branch
