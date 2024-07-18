@@ -29,9 +29,7 @@ jobs:
           sed -i '/^\/build\/*/d' .gitignore
           git config --local user.email "emmanouil.karystinos@gmail.com"
           git config --local user.name "manos-deploy"
-          git add .gitignore
-          git commit -m "Update .gitignore to allow build directory"
-          git add -f build
+          git add .
           git commit -m "Deployment files"
       - name: Push changes to deploy branch
         env:
