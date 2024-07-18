@@ -29,7 +29,7 @@ jobs:
           git checkout -b prod-deploy
           sed -i '/^\/build\/*/d' .gitignore
           git config --local user.email "emmanouil.karystinos@gmail.com"
-          git config --local user.name "manos-deploy"
+          git config --local user.name "Manos-Kar"
           git add .
           git commit -m "Deployment files"
       - name: Push changes to deploy branch
@@ -37,6 +37,11 @@ jobs:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
           DEPLOY_BRANCH: prod-deploy
         run: |
-          mkdir $HOME/.ssh && touch $HOME/.ssh/id_rsa
-          chmod 700 $HOME/.ssh/id_rsa && echo "$DEPLOY_KEY" > $HOME/.ssh/id_rsa && chmod 600 $HOME/.ssh
+          mkdir -p $HOME/.ssh
+          echo "$DEPLOY_KEY"
+          echo "$DEPLOY_KEY" > $HOME/.ssh/id_rsa
+          chmod 600 $HOME/.ssh/id_rsa
+          ssh-keyscan github.com >> $HOME/.ssh/known_hosts
+          git remote set-url origin git@github.com:${{ github.repository }}.git
           git push -f origin $DEPLOY_BRANCH
+          rm -rf $HOME/.ssh
