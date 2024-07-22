@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderMenu from "./HeaderMenu";
 import { useNavigate } from "react-router-dom";
+import { manosVersion } from "../manosVersion";
 
 function Header() {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ function Header() {
     <div className="header">
       <div className="leftHeader">
         <p className="leftHeaderTitle" onClick={() => navigate("/")}>
-          MANOS KARYSTINOS FILMS
+          MANOS KARYSTINOS FILMS V{manosVersion}
         </p>
       </div>
       <div className="rightHeader">
