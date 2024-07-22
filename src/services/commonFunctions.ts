@@ -5,5 +5,5 @@ export const getImageLink = (imageUrl: string) => {
 
   return isDevEnv()
     ? `http://localhost:8000${imageUrl}`
-    : `https://www.manoskarystinos.com/${imageUrl}`;
+    : `https://www.manoskarystinos.com${imageUrl}`;
 };
