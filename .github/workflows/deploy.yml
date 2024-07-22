@@ -13,10 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Git Log
-        run: |
-          git log
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
