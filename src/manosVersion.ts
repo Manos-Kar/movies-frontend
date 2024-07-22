@@ -1,1 +1,1 @@
-export const manosVersion = 1.6;
+export const manosVersion = 1.7;
