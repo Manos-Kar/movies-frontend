@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0d1576a8.css",
+    "main.js": "/static/js/main.a624070e.js",
+    "reactPlayerPreview.js": "/static/js/reactPlayerPreview.32d3db48.chunk.js",
+    "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.c6e3c575.chunk.js",
+    "reactPlayerSoundCloud.js": "/static/js/reactPlayerSoundCloud.d64322aa.chunk.js",
+    "reactPlayerMux.js": "/static/js/reactPlayerMux.82c143d1.chunk.js",
+    "reactPlayerFacebook.js": "/static/js/reactPlayerFacebook.7bd801a4.chunk.js",
+    "reactPlayerStreamable.js": "/static/js/reactPlayerStreamable.137fe1cc.chunk.js",
+    "reactPlayerWistia.js": "/static/js/reactPlayerWistia.94d295e8.chunk.js",
+    "reactPlayerTwitch.js": "/static/js/reactPlayerTwitch.85007f5b.chunk.js",
+    "reactPlayerDailyMotion.js": "/static/js/reactPlayerDailyMotion.b97a373c.chunk.js",
+    "reactPlayerMixcloud.js": "/static/js/reactPlayerMixcloud.f955c7a4.chunk.js",
+    "reactPlayerVidyard.js": "/static/js/reactPlayerVidyard.28071945.chunk.js",
+    "reactPlayerKaltura.js": "/static/js/reactPlayerKaltura.c683d159.chunk.js",
+    "reactPlayerFilePlayer.js": "/static/js/reactPlayerFilePlayer.70b8ed28.chunk.js",
+    "static/js/206.4455a739.chunk.js": "/static/js/206.4455a739.chunk.js",
+    "static/media/THICCCBOI-Light.ttf": "/static/media/THICCCBOI-Light.dc5f798908ebb5cce3c5.ttf",
+    "static/media/THICCCBOI-Regular.ttf": "/static/media/THICCCBOI-Regular.4954323183aece3a863c.ttf",
+    "static/media/THICCCBOI-Thin.ttf": "/static/media/THICCCBOI-Thin.27ce48dbe99867cb8b4a.ttf",
+    "static/media/THICCCBOI-Medium.ttf": "/static/media/THICCCBOI-Medium.27dc5df08d292122c518.ttf",
+    "static/media/THICCCBOI-Bold.ttf": "/static/media/THICCCBOI-Bold.8fbe03a6e2681c1a9427.ttf",
+    "static/media/THICCCBOI-SemiBold.ttf": "/static/media/THICCCBOI-SemiBold.f3fade9ac0d3fab837b1.ttf",
+    "static/media/THICCCBOI-ExtraBold.ttf": "/static/media/THICCCBOI-ExtraBold.71f6dcc0e44fac5a1396.ttf",
+    "static/media/THICCCBOI-Black.ttf": "/static/media/THICCCBOI-Black.ef5e17c69eff63704c9e.ttf",
+    "static/media/THICCCBOI-ThicccAF.ttf": "/static/media/THICCCBOI-ThicccAF.925f86531e34fd0a18e6.ttf",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.0d1576a8.css",
+    "static/js/main.a624070e.js"
+  ]
+}
