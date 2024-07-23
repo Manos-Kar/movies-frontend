@@ -361,4 +361,11 @@ body {
   100% {
     opacity: 1;
   }
+}
+.app-version {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  font-size: 6px;
+  color: rgb(228, 204, 171);
 }/*# sourceMappingURL=app.css.map */

@@ -7,6 +7,7 @@ import Films from "./pages/Films";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import FilmPage from "./pages/FilmPage";
+import { manosVersion } from "./manosVersion";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </Routes>
         <Header />
       </Router>
+      <div className="app-version">V {manosVersion}</div>
     </div>
   );
 }

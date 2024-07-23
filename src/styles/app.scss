@@ -82,3 +82,11 @@ body {
     opacity: 1;
   }
 }
+
+.app-version {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  font-size: 6px;
+  color: $text_basic;
+}
