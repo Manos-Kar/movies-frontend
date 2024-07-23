@@ -9,7 +9,7 @@ function Header() {
     <div className="header">
       <div className="leftHeader">
         <p className="leftHeaderTitle" onClick={() => navigate("/")}>
-          MANOS KARYSTINOS FILMS
+          Eirini Sg FILMS
         </p>
       </div>
       <div className="rightHeader">
