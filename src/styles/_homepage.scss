@@ -1,3 +1,4 @@
+@use "_variables.scss";
 .homepage {
   .imagePlaceholder {
     width: 100%;
@@ -15,7 +16,7 @@
   }
 
   .nameComponent {
-    background-color: $bg-color;
+    background-color: variables.$bg-color;
     position: relative;
     width: 100%;
     height: calc(100vh - 500px);
@@ -23,7 +24,7 @@
     flex-direction: column;
     justify-content: flex-end;
     .nameRow {
-      @include bigFont;
+      @include variables.bigFont;
       margin: -10px;
       margin-left: 60px;
     }
@@ -35,7 +36,7 @@
       position: relative;
 
       .namesubtextcontainer {
-        color: $text_basic;
+        color: variables.$text_basic;
         margin-left: 40px;
         font-size: 24px;
         font-weight: 500;
@@ -53,12 +54,12 @@
   .nameRowDiv2,
   .nameRowDiv3 {
     position: relative;
-    background-color: $bg-color;
+    background-color: variables.$bg-color;
     &.nameRowDiv2 {
       mix-blend-mode: darken;
     }
     .nameRow {
-      color: $text_basic;
+      color: variables.$text_basic;
       font-family: "THICCCBOI-Bold";
       font-size: 230px;
       font-weight: 500;

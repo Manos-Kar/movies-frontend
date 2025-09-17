@@ -284,6 +284,20 @@
     transform: scale(1);
   }
 }
+.aboutSection {
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 40px;
+}
+.aboutSection .aboutParagraph {
+  color: white;
+}
+.aboutSection .aboutParagraph.hover:hover {
+  text-decoration: underline;
+}
+
 body {
   margin: 0;
   font-family: "THICCCBOI-Medium";

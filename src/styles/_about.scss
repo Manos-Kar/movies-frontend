@@ -1,0 +1,16 @@
+.aboutSection {
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 40px;
+  .aboutParagraph {
+    color: white;
+
+    &.hover {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

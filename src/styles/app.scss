@@ -1,15 +1,16 @@
-@import "./_variables.scss";
-@import "./_homepage.scss";
-@import "./_customFonts.scss";
-@import "./_pages.scss";
+@use "_variables.scss";
+@use "_homepage.scss";
+@use "_customFonts.scss";
+@use "_pages.scss";
+@use "_about.scss";
 
 body {
   margin: 0;
   font-family: "THICCCBOI-Medium";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $bg_color;
-  color: $text_basic;
+  background-color: variables.$bg_color;
+  color: variables.$text_basic;
 }
 
 .header {
@@ -19,7 +20,7 @@ body {
   z-index: 10;
   top: 0;
   width: 100%;
-  background-color: $bg_color;
+  background-color: variables.$bg_color;
 
   .leftHeader {
     margin-left: 20px;
@@ -88,5 +89,5 @@ body {
   right: 10px;
   bottom: 10px;
   font-size: 6px;
-  color: $text_basic;
+  color: variables.$text_basic;
 }
