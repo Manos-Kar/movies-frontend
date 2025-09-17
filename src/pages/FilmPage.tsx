@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from "react";
 import PageTitle from "../components/PageTitle";
-import filmsJson from "../resources/contentJsons/films.json";
 
 import { useParams } from "react-router-dom";
 import { Film } from "../models/film";
 import ReactPlayer from "react-player";
+import { get_film_details } from "../services/requests";
 
 function FilmPage() {
-  const [film, setFilm] = useState<Film | undefined>();
+  const [film, setFilm] = useState<Film | undefined>(undefined);
   const params = useParams();
 
   useEffect(() => {
-    let filmSection = params.filmSection;
-    if (filmSection !== undefined) {
-      for (let filmObject of filmsJson[filmSection as keyof typeof filmsJson]) {
-        if (params.filmName === filmObject.slug) {
-          setFilm(filmObject);
+    let filmName = params.filmName;
+    if (filmName !== undefined) {
+      get_film_details(filmName).then((filmDetails: any) => {
+        console.log(filmDetails);
+
+        if (filmDetails) {
+          let tempFilmDetails = filmDetails["data"] as Film;
+          tempFilmDetails.awards = filmDetails["data"].awards.split("\n");
+          console.log(tempFilmDetails);
+
+          setFilm(tempFilmDetails);
         }
-      }
+      });
     }
     // eslint-disable-next-line
   }, []);
@@ -49,17 +55,15 @@ function FilmPage() {
                 <div className="filmeDetailSection">
                   <p className="filmDetailTitle">Awards</p>
                   {film.awards.map((award, index) => (
-                    <>
-                      <p className="filmAward" key={`filmAward-${index}`}>
-                        {award}
-                      </p>
-                    </>
+                    <p className="filmAward" key={`filmAward-${index}`}>
+                      {award}
+                    </p>
                   ))}
                 </div>
               )}
             </div>
           </div>
-          <PageTitle title={film.title.toUpperCase()} />
+          <PageTitle title={film.name.toUpperCase()} />
         </>
       )}
     </div>

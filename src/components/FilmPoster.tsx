@@ -12,7 +12,6 @@ type Props = {
 function FilmPoster(props: Props) {
   const [extraClass, setExtraClass] = useState<string>("zoomOut");
   const navigate = useNavigate();
-  console.log(props.film);
 
   return (
     <div className={`filmPosterContainer ${extraClass}`}>
