@@ -1,13 +1,14 @@
-@import "./filmPage.scss";
+@use "filmPage.scss";
+@use "_variables.scss";
 
 .pageTitleComponent {
   top: 60px;
   position: fixed;
   min-height: 220px;
   width: 100%;
-  background-color: $bg-color;
+  background-color: variables.$bg-color;
   .pageTitle {
-    @include bigFont;
+    @include variables.bigFont;
     margin-left: 60px;
     white-space: nowrap; /* Prevent text wrapping */
     margin-top: -20px;
@@ -16,7 +17,7 @@
     position: absolute; /* Position absolutely relative to the container */
   }
   .pageTitleInvisible {
-    @include bigFont;
+    @include variables.bigFont;
     position: absolute;
     top: -300px;
     margin-top: -20px;
@@ -27,7 +28,7 @@
   }
   .underlineTitle {
     height: 8px;
-    background-color: $text_basic;
+    background-color: variables.$text_basic;
     animation: widthExpand 1s;
     position: absolute;
     bottom: 0px;
@@ -54,7 +55,7 @@
     .subtitleComponent {
       .subtitle {
         margin-left: 40px;
-        @include subtitle;
+        @include variables.subtitle;
       }
     }
     .filmPostersContainer {
@@ -70,10 +71,10 @@
         height: 400px;
         min-width: 260px;
         border-radius: 5px;
-        border: 0.5px solid $text_basic;
+        border: 0.5px solid variables.$text_basic;
         margin-right: 30px;
         &.zoomIn {
-          border: 2px solid $text_basic;
+          border: 2px solid variables.$text_basic;
           margin-left: -1.5px;
           margin-right: 28.5px;
           margin-top: -1.5px;

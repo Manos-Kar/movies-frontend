@@ -39,7 +39,7 @@ npm install || error "Failed to install npm packages"
 
 # Step 3: Build the frontend
 log "Step 3: Build the frontend"
-npm run build:production || error "Failed to build the frontend"
+npm run build || error "Failed to build the frontend"
 
 # Step 4: SCP the build to remote server
 log "Step 4: SCP the build to remote server"
