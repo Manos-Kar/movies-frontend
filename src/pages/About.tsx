@@ -53,11 +53,14 @@ function About() {
         </p>
         <p className="aboutParagraph">
           Since 2020, Manos has been living in Gothenburg, Sweden, where he
-          works as a software developer and serves as CTO at a Legal Tech
-          startup. His journey into technology may seem far from cinema, but in
-          practice it reflects the same qualities that drove his film career:
-          problem-solving, creativity, and the courage to build something new
-          from scratch. In Sweden, he has been combining his technical expertise
+          has built a career in software development. From 2020 to 2025, he
+          served as CTO at Eperoto, a Legal Tech startup, where he led the
+          development team and drove technological innovation. Since late 2025,
+          he works as a Senior Frontend Engineer at MATCHi. His journey into
+          technology may seem far from cinema, but in practice it reflects the
+          same qualities that drove his film career: problem-solving,
+          creativity, and the courage to build something new from scratch. In
+          Sweden, he has been combining his technical expertise
           with his artistic background, moving fluidly between the precision of
           code and the imagination of storytelling. While his professional focus
           is currently in software and digital innovation, Manos continues to
