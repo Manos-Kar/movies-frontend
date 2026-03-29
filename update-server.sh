@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Load nvm and use the project's Node version
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use || { echo "Failed to set Node version via nvm"; exit 1; }
+
 # Log function for consistent logging format
 log() {
     echo "$(date +'%Y-%m-%d %H:%M:%S') - $1"
