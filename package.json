@@ -13,32 +13,23 @@
     "react-dom": "^18.3.1",
     "react-player": "^2.16.0",
     "react-router-dom": "^6.24.0",
-    "react-scripts": "^5.0.1",
     "sass": "^1.77.6",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "sass-migrator": "^2.4.2"
+    "@vitejs/plugin-react": "^6.0.1",
+    "sass-migrator": "^2.4.2",
+    "vite": "^8.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start:development": "env-cmd -f .env.development react-scripts start",
-    "build:test": "env-cmd -f .env.test npm run-script build",
-    "build:production": "env-cmd -f .env.production npm run build-css && react-scripts build",
-    "build:freemium": "env-cmd -f .env.freemium npm run-script build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "overrides": {
-    "node-forge": "1.4.0"
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start:development": "vite --mode development",
+    "build:test": "vite build --mode test",
+    "build:production": "vite build --mode production",
+    "build:freemium": "vite build --mode freemium"
   },
   "browserslist": {
     "production": [

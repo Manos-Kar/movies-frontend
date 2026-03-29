@@ -16,5 +16,5 @@ export const getUrl = (option: UrlOption, ids?: string[]) => {
       break;
   }
 
-  return process.env.REACT_APP_API_BASIC_URL + resUrl;
+  return import.meta.env.VITE_API_BASIC_URL + resUrl;
 };

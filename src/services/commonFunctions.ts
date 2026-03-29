@@ -1,4 +1,4 @@
-export const isDevEnv = () => process.env.REACT_APP_ENV === "dev";
+export const isDevEnv = () => import.meta.env.VITE_ENV === "dev";
 
 export const getImageLink = (imageUrl: string) => {
   console.log(imageUrl);
